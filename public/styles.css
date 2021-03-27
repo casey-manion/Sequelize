@@ -1,0 +1,38 @@
+/* basic page styles */
+html, body {
+    background-color: #b4b4b4;
+    padding: 40px 0;
+}
+
+body {
+    line-height: 1.6;
+    font-size: 18px;
+    color: #181818;
+    padding: 0 10px;
+}
+
+h1, h2 {
+    line-height: 1.2;
+    margin: 30px;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+}
+
+th {
+    background-color: #801111;
+}
+
+abbr {
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: white;
+}
