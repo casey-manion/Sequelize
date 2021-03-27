@@ -6,8 +6,14 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// variable for static folder endpoint
+const staticFolder = 'public';
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+// static folder endpoint
+app.use(express.static(staticFolder));
 
 app.use('/api', apiRoutes);
 
