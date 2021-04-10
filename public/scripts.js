@@ -57,18 +57,43 @@ async function windowActions() {
   });
 
   console.table(selectedMeals);
+  
+  const mealName = [];
+  const calories = [];
+  const servingSize = [];
+  const cholesterol = [];
+  const sodium = [];
+  const carbs = [];
+  const protein = [];
 
+  selectedMeals.forEach((meal) => {
+    mealName.push(meal['meal_name']);
+    calories.push({key: meal['meal_name'], value: meal['calories']});
+    servingSize.push({key: meal['meal_name'], value: meal['serving_size']});
+    cholesterol.push({key: meal['meal_name'], value: meal['cholesterol']});
+    sodium.push({key: meal['meal_name'], value: meal['sodium']});
+    carbs.push({key: meal['meal_name'], value: meal['carbs']});
+    protein.push({key: meal['meal_name'], value: meal['protein']});
+  });
+
+  console.log('Calories: ', calories);
+  console.log('Serv Size: ', servingSize);
+  console.log('Cholesterol: ', cholesterol);
+  console.log('Sodium: ', sodium);
+  console.log('Carbs: ', carbs);
+  console.log('Protein: ', protein);
+  
   // build stacked bar chart
   const chart = new CanvasJS.Chart('chartContainer', {
     animationEnabled: true,
     title: {
-      text: 'Evening Sales in a Restaurant'
+      text: 'Meal Macros'
     },
     axisX: {
-      valueFormatString: 'DDD'
+      // valueFormatString: 'DDD'
     },
     axisY: {
-      prefix: '$'
+      // prefix: '$'
     },
     toolTip: {
       shared: true
