@@ -40,3 +40,10 @@ abbr {
     text-align: center;
     color: white;
 }
+
+#chartContainer {
+    height: 370px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
