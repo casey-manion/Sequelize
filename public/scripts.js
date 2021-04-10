@@ -66,12 +66,14 @@ async function windowActions() {
   const protein = [];
 
   selectedMeals.forEach((meal) => {
-    calories.push({label: meal.calories, label: meal.meal_name});
-    servingSize.push({label: meal.servingSize, label: meal.meal_name});
-    cholesterol.push({label: meal.cholesterol, label: meal.meal_name});
-    sodium.push({label: meal.sodium, label: meal.meal_name});
-    carbs.push({label: meal.carbs, label: meal.meal_name});
-    protein.push({label: meal.protein, label: meal.meal_name});
+    console.log(meal.meal_name);
+    console.log(meal.calories);
+    calories.push({y: meal.calories, label: meal.meal_name});
+    servingSize.push({y: meal.serving_size, label: meal.meal_name});
+    cholesterol.push({y: meal.cholesterol, label: meal.meal_name});
+    sodium.push({y: meal.sodium, label: meal.meal_name});
+    carbs.push({y: meal.carbs, label: meal.meal_name});
+    protein.push({y: meal.protein, label: meal.meal_name});
   });
 
   console.log('Calories: ', calories);
@@ -98,36 +100,42 @@ async function windowActions() {
       {
         type: 'stackedBar',
         name: 'Calories',
+        color: '#3D3D3D',
         showInLegend: 'true',
         dataPoints: calories
       },
       {
         type: 'stackedBar',
         name: 'Serving Size',
+        color: '#BDAA00',
         showInLegend: 'true',
         dataPoints: servingSize
       },
       {
         type: 'stackedBar',
         name: 'Cholesterol',
+        color: '#6A008A',
         showInLegend: 'true',
         dataPoints: cholesterol
       },
       {
         type: 'stackedBar',
         name: 'Sodium',
+        color: '#2B7E28',
         showInLegend: 'true',
         dataPoints: sodium
       },
       {
         type: 'stackedBar',
         name: 'Carbs',
+        color: '#B96900',
         showInLegend: 'true',
         dataPoints: carbs
       },
       {
         type: 'stackedBar',
         name: 'Protein',
+        color: '#0067C7',
         showInLegend: 'true',
         dataPoints: protein
       }
