@@ -30,8 +30,20 @@ async function dataHandler() {
   });
 }
 
+async function getMeals() {
+  console.log('enter getMeals');
+  const diningRequest = await fetch('/api/meals/');
+  const diningData = await diningRequest.json();
+  return diningData;
+}
+
 async function windowActions() {
   console.log('enter windowActions');
+  // Lab 7 function
+  const meals = await getMeals();
+  console.table(meals);
+  
+  // Lab 6 function
   await dataHandler();
 }
 
