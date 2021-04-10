@@ -58,7 +58,6 @@ async function windowActions() {
 
   console.table(selectedMeals);
 
-  const mealName = [];
   const calories = [];
   const servingSize = [];
   const cholesterol = [];
@@ -67,16 +66,14 @@ async function windowActions() {
   const protein = [];
 
   selectedMeals.forEach((meal) => {
-    mealName.push(meal['meal_name']);
-    calories.push({label: meal['calories']});
-    servingSize.push({label: meal['serving_size'], label: meal['meal_name']});
-    cholesterol.push({label: meal['cholesterol'], label: meal['meal_name']});
-    sodium.push({label: meal['sodium'], label: meal['meal_name']});
-    carbs.push({label: meal['carbs'], label: meal['meal_name']});
-    protein.push({label: meal['protein'], label: meal['meal_name']});
+    calories.push({label: meal.calories, label: meal.meal_name});
+    servingSize.push({label: meal.servingSize, label: meal.meal_name});
+    cholesterol.push({label: meal.cholesterol, label: meal.meal_name});
+    sodium.push({label: meal.sodium, label: meal.meal_name});
+    carbs.push({label: meal.carbs, label: meal.meal_name});
+    protein.push({label: meal.protein, label: meal.meal_name});
   });
 
-  console.log('Meal names: ', mealName);
   console.log('Calories: ', calories);
   console.log('Serv Size: ', servingSize);
   console.log('Cholesterol: ', cholesterol);
@@ -98,39 +95,44 @@ async function windowActions() {
       itemclick: toggleDataSeries
     },
     data: [
-      { type: 'stackedBar',
+      {
+        type: 'stackedBar',
         name: 'Calories',
         showInLegend: 'true',
         dataPoints: calories
       },
-      { type: 'stackedBar',
+      {
+        type: 'stackedBar',
         name: 'Serving Size',
         showInLegend: 'true',
         dataPoints: servingSize
       },
-      { type: 'stackedBar',
+      {
+        type: 'stackedBar',
         name: 'Cholesterol',
         showInLegend: 'true',
         dataPoints: cholesterol
       },
-      { type: 'stackedBar',
+      {
+        type: 'stackedBar',
         name: 'Sodium',
         showInLegend: 'true',
         dataPoints: sodium
       },
-      { type: 'stackedBar',
+      {
+        type: 'stackedBar',
         name: 'Carbs',
         showInLegend: 'true',
         dataPoints: carbs
       },
-      { type: 'stackedBar',
+      {
+        type: 'stackedBar',
         name: 'Protein',
         showInLegend: 'true',
         dataPoints: protein
       }
     ]
   });
-
   chart.render();
 
   // toggle data series for stacked bar chart
