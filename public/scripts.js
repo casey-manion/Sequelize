@@ -64,6 +64,7 @@ async function windowActions() {
   const sodium = [];
   const carbs = [];
   const protein = [];
+  const fat = [];
 
   selectedMeals.forEach((meal) => {
     console.log(meal.meal_name);
@@ -74,6 +75,7 @@ async function windowActions() {
     sodium.push({y: meal.sodium, label: meal.meal_name});
     carbs.push({y: meal.carbs, label: meal.meal_name});
     protein.push({y: meal.protein, label: meal.meal_name});
+    fat.push({y: meal.fat, label: meal.meal_name});
   });
 
   console.log('Calories: ', calories);
@@ -82,6 +84,7 @@ async function windowActions() {
   console.log('Sodium: ', sodium);
   console.log('Carbs: ', carbs);
   console.log('Protein: ', protein);
+  console.log('Fat: ', fat);
 
   // build stacked bar chart
   const chart = new CanvasJS.Chart('chartContainer', {
@@ -138,6 +141,13 @@ async function windowActions() {
         color: '#0067C7',
         showInLegend: 'true',
         dataPoints: protein
+      },
+      {
+        type: 'stackedBar',
+        name: 'Fat',
+        color: '#B80099',
+        showInLegend: 'true',
+        dataPoints: fat
       }
     ]
   });
